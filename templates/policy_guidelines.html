@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Policy Guidelines - PoliciEASE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fffdfc;
+    }
+
+    nav {
+      background-color: #fef7f3;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      color: #D04A02;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      background-color: #fff1ea;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      color: #D04A02;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #fff5ef;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: #D04A02;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    ul {
+      padding-left: 20px;
+      font-size: 16px;
+    }
+
+    ul li {
+      margin-bottom: 15px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 15px;
+      font-size: 14px;
+      background-color: #fef7f3;
+      color: #D04A02;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div><strong>PoliciEASE</strong></div>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+    <a href="/home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#" onclick="toggleChat()">Smart Assistant</a>
+    <div class="dropdown">
+      <a href="#">Resources ▾</a>
+      <div class="dropdown-content">
+        <a href="/ask_queries">Ask Queries</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/policy-guidelines">Policy Guidelines</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2> How to decode your Policy like a PRO 😎</h2>
+  <ul>
+    <li><strong>Start with the Serterterummary:</strong> Most policies include a brief summary — read it first to get the big picture.</li>
+    <li><strong>Understand the Purpose:</strong> Know why the policy exists and what it’s trying to achieve.</li>
+    <li><strong>Identify Key Stakeholders:</strong> Check who the policy applies to: HR, Finance, IT, Legal, etc.</li>
+    <li><strong>Pay Attention to Do's and Don’ts:</strong> Look for specific actions you’re required or forbidden to take.</li>
+    <li><strong>Note Any Penalties:</strong> Many policies list consequences of non-compliance. Don’t miss them!</li>
+    <li><strong>Look for Change Logs:</strong> See if the policy has changed recently and what those changes are.</li>
+    <li><strong>Bookmark Important Sections:</strong> Save or highlight sections that apply directly to your department or role.</li>
+    <li><strong>Ask for Clarification:</strong> If anything is unclear, use our <a href="/ask_queries">Ask Queries</a> form to get help!</li>
+  </ul>
+</div>
+
+<div class="footer">
+  © 2025 PoliciEASE | Your Guide to Smarter Policy Understanding
+</div>
+
+</body>
+</html>

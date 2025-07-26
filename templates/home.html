@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - PoliciEASE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f6f8;
+    }
+    nav {
+      background-color: #D04A02;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .dropdown {
+      position: relative;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      border-radius: 6px;
+      min-width: 180px;
+      top: 100%;
+      right: 0;
+      z-index: 1000;
+    }
+    .dropdown-content a {
+      display: block;
+      padding: 10px 15px;
+      color: #D04A02;
+      text-decoration: none;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+    
+
+    /* Parallax Hero */
+    .hero-section {
+      background: linear-gradient(to bottom right , rgb(102, 101, 101)) url('https://images.pexels.com/photos/8133858/pexels-photo-8133858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 2rem;
+    }
+    .hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  overflow: hidden;
+
+  background: url('https://images.pexels.com/photos/8133858/pexels-photo-8133858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Add this overlay */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+  backdrop-filter: blur(2.5px);  /* soft blur */
+  z-index: 0;
+}
+
+/* Ensure text stays on top */
+.hero-section * {
+  position: relative;
+  z-index: 1;
+}
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      max-width: 900px;
+    }
+    .hero-section p {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      max-width: 750px;
+    }
+    .hero-section a.btn {
+      margin-top: 2rem;
+      background-color: #fff;
+      color: #D04A02;
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+    .hero-section a.btn:hover {
+      background-color: #f1f1f1;
+      color: #a03b01;
+    }
+
+    /* About Us */
+    .about-section {
+      padding: 5rem 2rem;
+      text-align: center;
+      background-color: #fff;
+    }
+    .about-section h2 {
+      font-size: 2.5rem;
+      color: #D04A02;
+      margin-bottom: 1rem;
+    }
+    .about-section p {
+      font-size: 1.1rem;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    .about-section a.btn {
+      background-color: #D04A02;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .about-section a.btn:hover {
+      background-color: #a03b01;
+    }
+
+    /* Contact */
+    .contact-section {
+      padding: 5rem 2rem;
+      background-color: #f8f8f8;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-size: 2.5rem;
+      color: #D04A02;
+      margin-bottom: 1rem;
+    }
+    .contact-section form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-section input,
+    .contact-section textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .contact-section button {
+      background-color: #D04A02;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-weight: 500;
+    }
+    .contact-section button:hover {
+      background-color: #a03b01;
+    }
+
+    .footer {
+      text-align: center;
+      color: #888;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      background: #f4f4f4;
+    }
+     nav {
+    background-color: #fef7f3;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  nav a {
+    color: #D04A02;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: 500;
+    border-radius: 6px;
+  }
+
+  nav a:hover {
+    background-color: #fff1ea;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 180px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 12px 16px;
+    color: #D04A02;
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #fff5ef;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  strong {
+    font-size: 20px;
+    color: #D04A02;
+  }
+  #chat-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #D04A02;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+ <nav>
+  <div><strong>PoliciEASE</strong></div>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+    <a href="/home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#" onclick="toggleChat()">Smart Assistant</a>
+
+    <div class="dropdown">
+      <a href="#">Resources ▾</a>
+      <div class="dropdown-content">
+        <a href="/ask_queries">Ask Queries</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/policy-guidelines">Policy Guidelines</a>
+      </div>
+    </div>
+    <a href="/login">Login</a>
+<a href="/register">Register</a>
+
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1>" PoliciEASE - Simplifying Policy Management. Amplifying Compliance."</h1>
+    <p style="margin-bottom: 0;">PoliciEASE is your intelligent companion for navigating the complex world of internal policies, regulatory updates, and compliance mandates.</p>
+    <p> From automatic policy change detection to easy-to-understand impact summaries, we empower teams to stay ahead — effortlessly.</p>
+<a href="/getstarted" class="btn">Get Started</a>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section" id="about" style="padding: 5rem 2rem; background-color: #fff;">
+  <h2 style="font-size: 2.8rem; color: #D04A02; margin-bottom: 2rem; text-align: center;">About Us</h2>
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 3rem; max-width: 1200px; margin: auto;">
+    
+    <!-- Text Content -->
+    <div style="flex: 1 1 500px;" data-aos="fade-right">
+      <p style="font-size: 1.1rem; color: #333; margin-bottom: 1.2rem;">
+      At  <strong>PoliciEASE</strong> , we believe that policy compliance shouldn't be complex or time-consuming. Born out of a need to bridge the gap between evolving regulations and everyday business operations, our platform leverages AI to bring clarity, consistency, and control to internal policy management. Whether you're a growing startup or a global enterprise, PoliciEASE helps your teams monitor, interpret, and act on policy changes with speed and confidence. We're not just building a tool — we're shaping the future of proactive compliance.   
+      </p>
+      <p style="font-size: 1.1rem; color: #333; margin-bottom: 1.2rem;">
+      <p style="font-size: 1.1rem; color: #333; margin-bottom: 2rem;">
+        Our AI assistant gives you voice-powered, multilingual, and industry-specific support to navigate changing policy environments with clarity and speed.
+      </p>
+<a href="/policy-guidelines" class="btn" style="background-color: #D04A02; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none;">Learn More</a>
+    </div>
+
+    <!-- Image -->
+    <div style="flex: 1 1 400px;" data-aos="fade-left">
+      <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df" 
+           alt="AI Policy Assistant" 
+           style="width: 100%; max-width: 500px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- Contact Section -->
+ <!-- Contact Section -->
+<!-- Contact Section -->
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+  <h2>Contact Us</h2>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="alert alert-success" role="alert">
+      {{ messages[0] }}
+    </div>
+  {% endif %}
+{% endwith %}
+
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem;">
+    
+    <!-- Contact Form Box -->
+    <div style="background-color: #fff; border: 1px solid #ddd; border-left: 6px solid #D04A02; border-radius: 12px; padding: 2rem; width: 100%; max-width: 450px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h4 style="color: #D04A02; margin-bottom: 1.5rem;">Send Us a Message</h4>
+<form action="/home" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="email" name="email" placeholder="Your Email" required style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="text" name="phone" placeholder="Phone Number" style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="text" name="place" placeholder="Your Location" style="width: 100%; margin-bottom: 1rem; padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px;">
+        <textarea name="message" placeholder="Your Message" rows="4" style="width: 100%; margin-bottom: 1.2rem; padding: 0.75rem; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+        <button type="submit" style="background-color: #D04A02; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; font-weight: 500;">Submit</button>
+      </form>
+    </div>
+
+    <!-- Admin Contact Box -->
+    <div style="background-color: #fef7f3; border: 1px solid #e0e0e0; border-left: 6px solid #FCA55C; border-radius: 12px; padding: 2rem; width: 100%; max-width: 450px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+      <h4 style="color: #B74300; margin-bottom: 1.5rem;">Administrator Contact</h4>
+      <p style="margin-bottom: 1rem; font-size: 1.05rem;">
+        <i class="fa fa-user" style="margin-right: 10px;"></i><strong>Name:</strong> Sriya Gadagoju
+      </p>
+      <p style="margin-bottom: 1rem; font-size: 1.05rem;">
+        <i class="fa fa-phone" style="margin-right: 10px;"></i><strong>Phone:</strong> +91-9876543210
+      </p>
+      <p style="margin-bottom: 1rem; font-size: 1.05rem;">
+        <i class="fa fa-envelope" style="margin-right: 10px;"></i><strong>Email:</strong> 
+        <a href="mailto:admin@policiease.in" style="color: #D04A02; text-decoration: none;">admin@policiease.in</a>
+      </p>
+      <p style="margin-bottom: 1rem; font-size: 1.05rem;">
+        <i class="fab fa-linkedin" style="margin-right: 10px;"></i><strong>LinkedIn:</strong> 
+        <a href="https://linkedin.com/in/sriya-gadagoju" target="_blank" style="color: #D04A02; text-decoration: none;">linkedin.com/in/sriya-gadagoju</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Smart Assistant Chatbox -->
+<div id="chatbox" style="display:none; position:fixed; bottom:90px; right:20px; width:300px; background:#fff; border:1px solid #ccc; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.2); z-index:1000; font-family:sans-serif;">
+  <div style="background:#D04A02; color:#fff; padding:10px; border-top-left-radius:12px; border-top-right-radius:12px;">
+    <strong style="color: #e0e0e0;">Smart Assistant</strong>
+    <span style="float:right; cursor:pointer;" onclick="toggleChat()">✖</span>
+  </div>
+  <div id="chat-messages" style="max-height:200px; overflow-y:auto; padding:10px; font-size:14px;"></div>
+  <div style="padding:10px; border-top:1px solid #eee;">
+    <input id="user-input" type="text" placeholder="Ask a policy question..." 
+           style="width:65%; padding:5px;" onkeydown="if(event.key==='Enter'){sendMessage()}">
+    <button onclick="startVoice()" style="background:#f0f0f0; border:none; padding:6px 10px; border-radius:5px;">🎤</button>
+    <button onclick="sendMessage()" style="background:#D04A02; color:#fff; border:none; padding:6px 10px; border-radius:5px;">➤</button>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 PoliciEASE | Empowered by PwC Design Language
+  </div>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+<script>
+  function toggleChat() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = (chatbox.style.display === "none") ? "block" : "none";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chat = document.getElementById("chat-messages");
+    chat.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+    input.value = "";
+
+    fetch("/chatbot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: msg })
+    })
+    .then(res => res.json())
+    .then(data => {
+      chat.innerHTML += `<div><strong>Assistant:</strong> ${data.reply}</div>`;
+      chat.scrollTop = chat.scrollHeight;
+      speakText(data.reply);
+    });
+  }
+
+function speakText(text) {
+  const synth = window.speechSynthesis;
+
+  // Wait until voices are loaded before selecting
+  let selectedVoice = null;
+  function loadAndSpeak() {
+    const voices = synth.getVoices();
+    
+    // Prioritize a soft, English female voice
+    selectedVoice = voices.find(v =>
+      (v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("samantha") || v.name.toLowerCase().includes("karen")) &&
+      v.lang.startsWith("en")
+    ) || voices.find(v => v.lang === "en-IN") || voices.find(v => v.lang.startsWith("en"));
+
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.voice = selectedVoice;
+    utter.lang = selectedVoice?.lang || "en-US";
+    utter.rate = 1.0;
+    utter.pitch = 1.2;   // Slightly higher for a gentle feminine tone
+    utter.volume = 1.0;
+
+    synth.cancel(); // Stop previous speech if still going
+    synth.speak(utter);
+  }
+
+  if (synth.getVoices().length === 0) {
+    // Wait for voices to be loaded before speaking
+    window.speechSynthesis.onvoiceschanged = loadAndSpeak;
+  } else {
+    loadAndSpeak();
+  }
+}
+
+
+
+   // 🆕 New: Speech-to-Text Input (Voice to Input Box)
+  function startVoice() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById('user-input').value = transcript;
+    };
+
+    recognition.onerror = function(event) {
+      alert("Voice input error: " + event.error);
+    };
+  }
+</script>
+
+<script>
+  function toggleChat() {
+    const chatbox = document.getElementById("chatbox");
+    chatbox.style.display = (chatbox.style.display === "none") ? "block" : "none";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById("user-input");
+    const msg = input.value.trim();
+    if (!msg) return;
+
+    const chat = document.getElementById("chat-messages");
+    chat.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+    input.value = "";
+
+    fetch("/chatbot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: msg })
+    })
+    .then(res => res.json())
+    .then(data => {
+      chat.innerHTML += `<div><strong>Assistant:</strong> ${data.reply}</div>`;
+      chat.scrollTop = chat.scrollHeight;
+      speakText(data.reply);
+    });
+  }
+
+
+
+
+
+
+  function startVoice() {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.start();
+
+    recognition.onresult = function(event) {
+      const transcript = event.results[0][0].transcript;
+      document.getElementById('user-input').value = transcript;
+    };
+
+    recognition.onerror = function(event) {
+      alert("Voice input error: " + event.error);
+    };
+  }
+</script>
+
+</body>
+</html>

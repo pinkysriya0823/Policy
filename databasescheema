@@ -1,0 +1,101 @@
+source venv/bin/activate
+
+pinkysriya_0823@GADAGOJUs-MacBook-Pro ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 9.0.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+mysql> USE policiease;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> 
+mysql> SHOW TABLES;
++----------------------+
+| Tables_in_policiease |
++----------------------+
+| ask_queries          |
+| contact_messages     |
+| feedback             |
+| users                |
++----------------------+
+4 rows in set (0.002 sec)
+
+mysql> DESCRIBE users;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | YES  |     | NULL    |                |
+| username | varchar(100) | YES  |     | NULL    |                |
+| email    | varchar(150) | YES  | UNI | NULL    |                |
+| phone    | varchar(15)  | YES  |     | NULL    |                |
+| password | text         | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+6 rows in set (0.009 sec)
+
+mysql> DESCRIBE users;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| id       | int          | NO   | PRI | NULL    | auto_increment |
+| name     | varchar(100) | YES  |     | NULL    |                |
+| username | varchar(100) | YES  |     | NULL    |                |
+| email    | varchar(150) | YES  | UNI | NULL    |                |
+| phone    | varchar(15)  | YES  |     | NULL    |                |
+| password | text         | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+6 rows in set (0.002 sec)
+
+mysql> DESCRIBE ask_queries;
++--------------+--------------+------+-----+-------------------+-------------------+
+| Field        | Type         | Null | Key | Default           | Extra             |
++--------------+--------------+------+-----+-------------------+-------------------+
+| id           | int          | NO   | PRI | NULL              | auto_increment    |
+| name         | varchar(100) | NO   |     | NULL              |                   |
+| email        | varchar(100) | NO   |     | NULL              |                   |
+| subject      | varchar(150) | NO   |     | NULL              |                   |
+| message      | text         | NO   |     | NULL              |                   |
+| submitted_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+--------------+------+-----+-------------------+-------------------+
+6 rows in set (0.002 sec)
+
+mysql> DESCRIBE contact_messages;
++--------------+--------------+------+-----+-------------------+-------------------+
+| Field        | Type         | Null | Key | Default           | Extra             |
++--------------+--------------+------+-----+-------------------+-------------------+
+| id           | int          | NO   | PRI | NULL              | auto_increment    |
+| name         | varchar(100) | NO   |     | NULL              |                   |
+| email        | varchar(100) | NO   |     | NULL              |                   |
+| phone        | varchar(20)  | YES  |     | NULL              |                   |
+| place        | varchar(100) | YES  |     | NULL              |                   |
+| message      | text         | YES  |     | NULL              |                   |
+| submitted_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+--------------+------+-----+-------------------+-------------------+
+7 rows in set (0.002 sec)
+
+mysql> DESCRIBE feedback;
++--------------+--------------+------+-----+-------------------+-------------------+
+| Field        | Type         | Null | Key | Default           | Extra             |
++--------------+--------------+------+-----+-------------------+-------------------+
+| id           | int          | NO   | PRI | NULL              | auto_increment    |
+| name         | varchar(100) | NO   |     | NULL              |                   |
+| email        | varchar(100) | NO   |     | NULL              |                   |
+| rating       | int          | NO   |     | NULL              |                   |
+| comments     | text         | YES  |     | NULL              |                   |
+| submitted_at | timestamp    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++--------------+--------------+------+-----+-------------------+-------------------+
+6 rows in set (0.002 sec)
+
+mysql> 

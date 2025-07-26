@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PoliciEASE - Upload Policy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    nav {
+      background-color: #D04A02;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      z-index: 1000;
+      border-radius: 6px;
+      right: 0;
+      overflow-wrap: break-word;
+    }
+    .dropdown-content a {
+      color: #D04A02;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+      white-space: normal;
+    }
+    .dropdown-content a:hover {
+      background-color: #f1f1f1;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    h2.heading {
+      color: #D04A02;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    label {
+      font-weight: 600;
+      margin: 1.2rem 0 0.6rem;
+      font-size: 1.2rem;
+      display: block;
+    }
+    input[type="file"],
+    select {
+      padding: 1rem;
+      font-size: 1.1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 1.8rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .submit-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    button {
+      padding: 1rem 2rem;
+      background-color: #D04A02;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #A03B01;
+    }
+    footer {
+      text-align: center;
+      color: #888;
+      margin-top: 3rem;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+  <script>
+    const policyOptions = {
+      "Health Industries": ["Affordable Care Act (ACA)", "NIH Funding", "HIPAA Regulations", "Telehealth Reimbursement Policies", "Vaccination Programs", "Others" ],
+      "Consumer Markets": ["CPSIA", "GDPR", "FTC Rules", "Eco-labeling", "Antitrust Laws", "Others"],
+      "Financial Services": ["Dodd-Frank Act", "Basel III", "CRA", "PSD2", "CFPB Regulations" , "Others"],
+      "Technology, Media & Telecom": ["GDPR", "Net Neutrality", "DMCA", "Telecom Act", "ISO" , "Others"],
+      "Industrial Products & Services": ["REACH", "OSHA", "Tech Strategy", "Buy American", "Export-Import Policies" , "Others"],
+      "Others": ["Custom or Unlisted Policy"]
+    };
+    function updatePolicies() {
+      const industry = document.getElementById("industry").value;
+      const policy = document.getElementById("policy");
+      policy.innerHTML = "";
+      policyOptions[industry].forEach(p => {
+        let option = document.createElement("option");
+        option.value = p;
+        option.text = p;
+        policy.add(option);
+      });
+    }
+    window.onload = updatePolicies;
+  </script>
+</head>
+<body>
+  <nav>
+    <div><strong>PoliciEASE</strong></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
+      <a href="/home">Home</a>
+      <a href="/home">About Us</a>
+      <a href="/home">Contact</a>
+      <a href="/smart-assistant">Smart Assistant</a>
+      <div class="dropdown">
+        <a href="#">Resources ▾</a>
+        <div class="dropdown-content">
+          <a href="/ask-queries">Ask Queries</a>
+          <a href="/feedback">Feedback</a>
+          <a href="/policy-guidelines">Policy Guidelines</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <h2 class="heading">📤 Upload Policy Document</h2>
+    <form action="/analyze" method="POST" enctype="multipart/form-data">
+      <label for="industry">Industry Domain</label>
+      <select name="industry" id="industry" onchange="updatePolicies()" required>
+        <option value="Health Industries">Health Industries</option>
+        <option value="Consumer Markets">Consumer Markets</option>
+        <option value="Financial Services">Financial Services</option>
+        <option value="Technology, Media & Telecom">Technology, Media & Telecom</option>
+        <option value="Industrial Products & Services">Industrial Products & Services</option>
+        <option value="Others">Others</option>
+      </select>
+      <label for="policy">Policy</label>
+      <select name="policy" id="policy" required></select>
+      <label for="file">Upload File (PDF/DOCX)</label>
+      <input type="file" name="file" accept=".pdf,.docx" required />
+      <div class="submit-wrapper">
+        <button type="submit">📊 Analyze Policy</button>
+      </div>
+    </form>
+  </main>
+  <footer>
+    © 2025 PoliciEASE | Empowered by PwC design palette
+  </footer>
+</body>
+</html>

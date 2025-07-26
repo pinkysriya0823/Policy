@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Give Feedback - PoliciEASE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: #fffdfc;
+    }
+
+    nav {
+      background-color: #fef7f3;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    nav a {
+      color: #D04A02;
+      text-decoration: none;
+      padding: 8px 12px;
+      font-weight: 500;
+      border-radius: 6px;
+    }
+
+    nav a:hover {
+      background-color: #fff1ea;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 180px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      z-index: 1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      color: #D04A02;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #fff5ef;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+      color: #D04A02;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .stars input {
+      display: none;
+    }
+
+    .stars label {
+      font-size: 30px;
+      color: #ddd;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .stars input:checked ~ label,
+    .stars label:hover,
+    .stars label:hover ~ label {
+      color: #D04A02;
+    }
+
+    button {
+      background: #D04A02;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .success {
+      color: green;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div><strong>PoliciEASE</strong></div>
+  <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+    <a href="/home">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#" onclick="toggleChat()">Smart Assistant</a>
+    <div class="dropdown">
+      <a href="#">Resources ▾</a>
+      <div class="dropdown-content">
+        <a href="/ask_queries">Ask Queries</a>
+        <a href="/feedback">Feedback</a>
+        <a href="/policy-guidelines">Policy Guidelines</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <h2>Give Your Feedback</h2>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="success">{{ messages[0] }}</div>
+    {% endif %}
+  {% endwith %}
+
+  <form action="/submit_feedback" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+
+    <div class="stars">
+      <input type="radio" id="star5" name="rating" value="5" required><label for="star5">★</label>
+      <input type="radio" id="star4" name="rating" value="4"><label for="star4">★</label>
+      <input type="radio" id="star3" name="rating" value="3"><label for="star3">★</label>
+      <input type="radio" id="star2" name="rating" value="2"><label for="star2">★</label>
+      <input type="radio" id="star1" name="rating" value="1"><label for="star1">★</label>
+    </div>
+
+    <textarea name="comments" rows="4" placeholder="Your comments..."></textarea>
+    <button type="submit">Submit Feedback</button>
+  </form>
+</div>
+
+</body>
+</html>
